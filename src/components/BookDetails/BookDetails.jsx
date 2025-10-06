@@ -14,13 +14,13 @@ const BookDetails = () => {
 
   const singleBook = data.find((book) => book.bookId === bookId);
 
-  if (!singleBook) {
-    return (
-      <div className="text-center mt-20 text-xl font-semibold text-red-500">
-        Book not found!
-      </div>
-    );
-  }
+  // if (!singleBook) {
+  //   return (
+  //     <div className="text-center mt-20 text-xl font-semibold text-red-500">
+  //       Book not found!
+  //     </div>
+  //   );
+  // }
 
   const {
     bookName,
@@ -36,12 +36,12 @@ const BookDetails = () => {
   } = singleBook;
 
   const handleMarkAsRead = (id) => {
-    MySwal.fire({
-      title: "Good job!",
-      text: "Book added to Read list!",
-      icon: "success",
-      confirmButtonColor: "#10b981",
-    });
+    // MySwal.fire({
+    //   title: "Good job!",
+    //   text: "Book added to Read list!",
+    //   icon: "success",
+    //   confirmButtonColor: "#10b981",
+    // });
     addToStoredDB(id);
     // Your existing logic to add to stored DB
   };
