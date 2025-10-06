@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useOutletContext, useParams } from "react-router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { addToStoredDB } from "../../Utility/Utility";
 
 const MySwal = withReactContent(Swal);
 
@@ -41,12 +42,15 @@ const BookDetails = () => {
       icon: "success",
       confirmButtonColor: "#10b981",
     });
+    addToStoredDB(id);
     // Your existing logic to add to stored DB
   };
 
   const handleAddToWishlist = () => {
-    console.log(wish)
-    const isAlreadyInWish = wish.some((book) => book.bookId === singleBook.bookId);
+    console.log(wish);
+    const isAlreadyInWish = wish.some(
+      (book) => book.bookId === singleBook.bookId
+    );
 
     if (isAlreadyInWish) {
       MySwal.fire({
